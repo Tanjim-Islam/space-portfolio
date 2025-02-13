@@ -13,6 +13,9 @@ export const Card: React.FC<CardProps> = ({ children, className = "", tilt = fal
     <div className={`bg-white/10 backdrop-blur-sm rounded-xl ${noPadding ? "" : "p-6"} ${className}`}>{children}</div>
   )
 
-  return tilt ? <TiltCard className="h-full">{cardContent}</TiltCard> : cardContent
+  return tilt ? (
+    <TiltCard className="h-full rounded-xl">
+      {cardContent}
+    </TiltCard>
+  ) : cardContent
 }
-
