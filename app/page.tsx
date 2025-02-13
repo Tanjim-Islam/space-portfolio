@@ -11,6 +11,7 @@ import { Button } from "@/components/Button"
 import { SocialIcon } from "@/components/SocialIcon"
 import { CustomCursor } from "@/components/CustomCursor"
 import { SkillCloud } from "@/components/SkillCloud"
+import { Contact } from "@/components/Contact"
 import { navLinks, experiences, portfolio, skills } from "@/data/portfolioData"
 
 const PortfolioPage: React.FC = () => {
@@ -97,34 +98,7 @@ const PortfolioPage: React.FC = () => {
           ))}
         </section>
 
-        <section id="contact" className="mb-20">
-          <h2 className="text-3xl font-semibold mb-6">Contact</h2>
-          <Card>
-            <form className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block mb-2">
-                  Name
-                </label>
-                <input id="name" type="text" className="w-full bg-white/20 p-2 rounded-xl" />
-              </div>
-              <div>
-                <label htmlFor="email" className="block mb-2">
-                  Email
-                </label>
-                <input id="email" type="email" className="w-full bg-white/20 p-2 rounded-xl" />
-              </div>
-              <div>
-                <label htmlFor="message" className="block mb-2">
-                  Message
-                </label>
-                <textarea id="message" rows={4} className="w-full bg-white/20 p-2 rounded-xl"></textarea>
-              </div>
-              <Button type="submit" className="w-full">
-                Send Message
-              </Button>
-            </form>
-          </Card>
-        </section>
+        <Contact />
 
         <footer className="text-center py-8">
           <p className="mb-6">&copy; 2023 Tanjim Islam Riju. All rights reserved.</p>
@@ -141,4 +115,3 @@ const PortfolioPage: React.FC = () => {
 }
 
 export default PortfolioPage
-
