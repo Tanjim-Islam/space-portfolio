@@ -5,150 +5,306 @@ export const navLinks = [
   { id: "portfolio", title: "Portfolio" },
   { id: "experience", title: "Experience" },
   { id: "contact", title: "Contact" },
-]
+];
 
 export const experiences = [
   {
-    title: "Frontend Developer",
-    company_name: "Invicta Solution Limited",
+    title: "Fullstack Developer",
+    company_name: "Invicta Solutions Ltd",
     date: "June 2024 - Present",
     details: [
-      "Developed responsive and visually appealing interfaces using <span style='color: white;'> HTML, CSS, JavaScript, React, and Vue. </span>",
-      "Collaborated with designers and backend developers to enhance user experience.",
-      "Implemented <span style='color: white;'> web performance optimization </span> techniques for faster load times.",
-      "Contributed to code reviews and the development of reusable components.",
+      "Developed responsive and visually appealing interfaces using <span style='color: white;'>React.js, Node.js, Redux, RESTful APIs</span>",
+      "Implemented <span style='color: white;'>CI/CD pipelines, testing with Jest</span>, and collaborated with UI/UX designers",
+      "Worked with <span style='color: white;'>scalable architecture</span> and efficient state management",
+      "Utilized <span style='color: white;'>Git</span> for version control and collaborative development",
     ],
   },
-]
+];
+
+export const education = [
+  {
+    institution: "BRAC University",
+    degree: "B.Sc. in Computer Science & Engineering",
+    date: "2020 - 2024",
+  },
+  {
+    institution: "Bangladesh International School and College",
+    degree: "Higher School Certificate (HSC)",
+    date: "2019",
+  },
+  {
+    institution: "Chetona Model Academy",
+    degree: "Secondary School Certificate (SSC)",
+    date: "2017",
+  },
+];
 
 export const portfolio = [
   {
+    name: "StoreIt",
+    description:
+      "Full-stack file storage application with secure authentication and file management capabilities",
+    image: "/placeholder.svg?height=200&width=300",
+    link: "https://github.com/Tanjim-Islam/Storage-management",
+  },
+  {
+    name: "Algorithm Visualizer",
+    description:
+      "Interactive tool for visualizing various algorithms including sorting, searching, and graph algorithms",
+    image: "/placeholder.svg?height=200&width=300",
+    link: "https://github.com/Tanjim-Islam/Algorithm-Visualizer",
+  },
+  {
+    name: "PinkShop",
+    description:
+      "E-commerce frontend with modern UI, product catalog, cart functionality, and responsive design",
+    image: "/placeholder.svg?height=200&width=300",
+    link: "https://github.com/Tanjim-Islam/ecommerce-pinkshop",
+  },
+  {
+    name: "HomieStay",
+    description:
+      "P2P booking platform similar to Airbnb with property listings, user authentication, and booking system",
+    image: "/placeholder.svg?height=200&width=300",
+    link: "https://github.com/Tanjim-Islam/HomieStay",
+  },
+  {
     name: "Hand Sign Recognition with YOLOv8",
     description:
-      "This repository showcases a computer vision project that detects and classifies hand signs in real time using the YOLOv8 object detection framework. It includes training scripts, a labeled dataset, and an inference pipeline that demonstrates how to process live or recorded video streams to identify different hand gestures.",
+      "Computer vision project that detects and classifies hand signs in real-time using YOLOv8 object detection framework",
     image: "/placeholder.svg?height=200&width=300",
     link: "https://github.com/Tanjim-Islam/Hand-Sign-Recognition-with-YOLOv8",
   },
   {
     name: "Fake News Detection",
     description:
-      "Developed a high-accuracy fake news detection system using the FaKnow library, achieving near-perfect metrics across datasets with advanced content and social context-based algorithms.",
+      "ML system using the FaKnow library to detect fake news with high accuracy across multiple datasets",
     image: "/placeholder.svg?height=200&width=300",
     link: "https://github.com/Tanjim-Islam/Fake-News-Detection",
   },
-  {
-    name: "HomieStay",
-    description:
-      "HomieStay is a modern, clean, and user-friendly platform for hosting and connecting with people in need of temporary housing.",
-    image: "/placeholder.svg?height=200&width=300",
-    link: "https://homie-stay.vercel.app/",
-  },
-]
+];
 
 export interface Skill {
-  name: string
-  category: "frontend" | "backend" | "ai" | "devops"
-  level: number // 1-5
-  description: string
+  name: string;
+  category:
+    | "languages"
+    | "web"
+    | "ml"
+    | "tools"
+    | "cloud"
+    | "databases"
+    | "design"
+    | "other";
+  level: number; // 1-5
+  description: string;
 }
 
 export const skills: Skill[] = [
+  // Languages
+  {
+    name: "Python",
+    category: "languages",
+    level: 5,
+    description: "Primary language for ML/AI development and data science",
+  },
   {
     name: "JavaScript",
-    category: "frontend",
+    category: "languages",
     level: 5,
-    description: "Expert in modern ES6+ features and frameworks",
+    description: "Modern ES6+ features for web development",
   },
   {
-    name: "TypeScript",
-    category: "frontend",
+    name: "C/C++",
+    category: "languages",
     level: 4,
-    description: "Strong typing and advanced TypeScript patterns",
+    description: "System programming and algorithm implementation",
   },
   {
-    name: "React",
-    category: "frontend",
+    name: "Java",
+    category: "languages",
+    level: 3,
+    description: "Object-oriented programming and application development",
+  },
+
+  // Web Development
+  {
+    name: "React.js",
+    category: "web",
     level: 5,
-    description: "Complex React applications and performance optimization",
+    description: "Frontend library for building user interfaces",
   },
   {
     name: "Next.js",
-    category: "frontend",
+    category: "web",
     level: 4,
-    description: "Full-stack React framework expertise",
+    description: "React framework for production-grade applications",
   },
   {
     name: "Node.js",
-    category: "backend",
+    category: "web",
     level: 4,
-    description: "Server-side JavaScript and API development",
+    description: "Server-side JavaScript runtime",
   },
   {
-    name: "Python",
-    category: "backend",
-    level: 5,
-    description: "Backend development and scripting",
+    name: "Nest.js",
+    category: "web",
+    level: 3,
+    description: "Progressive Node.js framework for scalable applications",
   },
+  {
+    name: "Tailwind CSS",
+    category: "web",
+    level: 4,
+    description: "Utility-first CSS framework for rapid UI development",
+  },
+
+  // ML/AI
   {
     name: "TensorFlow",
-    category: "ai",
+    category: "ml",
     level: 4,
-    description: "Deep learning and neural networks",
+    description: "Deep learning framework for neural networks",
   },
   {
     name: "PyTorch",
-    category: "ai",
+    category: "ml",
     level: 4,
-    description: "Machine learning model development",
+    description: "Machine learning library for research and production",
+  },
+  {
+    name: "scikit-learn",
+    category: "ml",
+    level: 4,
+    description: "Machine learning library for classical algorithms",
   },
   {
     name: "Computer Vision",
-    category: "ai",
-    level: 3,
-    description: "Image processing and object detection",
+    category: "ml",
+    level: 4,
+    description: "OpenCV, YOLO, and Fast R-CNN for image processing",
   },
   {
     name: "NLP",
-    category: "ai",
-    level: 3,
-    description: "Natural Language Processing applications",
+    category: "ml",
+    level: 4,
+    description: "BERT, GPT, and transformer models for text processing",
   },
+  {
+    name: "Quantum ML",
+    category: "ml",
+    level: 3,
+    description: "Qiskit and Pennylane for quantum machine learning",
+  },
+
+  // Databases
+  {
+    name: "MySQL",
+    category: "databases",
+    level: 4,
+    description: "Relational database management system",
+  },
+  {
+    name: "MongoDB",
+    category: "databases",
+    level: 4,
+    description: "NoSQL document database for modern applications",
+  },
+  {
+    name: "SQL",
+    category: "databases",
+    level: 4,
+    description: "Query language for relational databases",
+  },
+
+  // Cloud & DevOps
   {
     name: "Docker",
-    category: "devops",
-    level: 4,
-    description: "Containerization and deployment",
-  },
-  {
-    name: "AWS",
-    category: "devops",
+    category: "cloud",
     level: 3,
-    description: "Cloud infrastructure and services",
+    description: "Containerization for application deployment",
   },
   {
     name: "Git",
-    category: "devops",
+    category: "cloud",
     level: 5,
-    description: "Version control and collaboration",
+    description: "Version control system for collaborative development",
   },
   {
-    name: "CI/CD",
-    category: "devops",
-    level: 4,
-    description: "Automated testing and deployment",
+    name: "Kubernetes",
+    category: "cloud",
+    level: 2,
+    description: "Container orchestration for scalable applications",
+  },
+
+  // Design & Tools
+  {
+    name: "Figma",
+    category: "design",
+    level: 3,
+    description: "Collaborative interface design tool",
   },
   {
-    name: "Agile",
-    category: "devops",
-    level: 4,
-    description: "Project management and team collaboration",
+    name: "Adobe XD",
+    category: "design",
+    level: 3,
+    description: "UI/UX design and prototyping tool",
   },
-]
+
+  // Other Tools
+  {
+    name: "Agile/Scrum",
+    category: "tools",
+    level: 4,
+    description: "Project management methodologies",
+  },
+  {
+    name: "Jupyter",
+    category: "tools",
+    level: 5,
+    description: "Interactive computing environment for data science",
+  },
+  {
+    name: "LaTeX",
+    category: "tools",
+    level: 4,
+    description: "Document preparation system for technical writing",
+  },
+];
 
 export const categoryColors = {
-  frontend: "#3498db",
-  backend: "#2ecc71",
-  ai: "#9b59b6",
-  devops: "#e74c3c",
-}
+  languages: "#3498db",
+  web: "#2ecc71",
+  ml: "#9b59b6",
+  tools: "#e74c3c",
+  cloud: "#f39c12",
+  databases: "#1abc9c",
+  design: "#e67e22",
+  other: "#7f8c8d",
+};
 
+export const research = [
+  {
+    title: "Maternal Fetal Ultrasound Diagnosis with Deep Learning",
+    description:
+      "Used SE blocks and deep learning for prenatal anomaly detection.",
+    type: "Thesis",
+  },
+  {
+    title: "Medical Report Generation with Multimodal Data + LLMs",
+    description:
+      "Combines GPT-4 with image and text data for report generation.",
+    type: "Research",
+  },
+  {
+    title: "Load Balancing in Distributed Cache Systems",
+    description:
+      "Focuses on adaptive techniques to improve latency and efficiency.",
+    type: "Research",
+  },
+];
+
+export const contactInfo = {
+  email: "tanjim.riju1243@gmail.com",
+  linkedin: "https://www.linkedin.com/in/tanjim-riju/",
+  github: "https://github.com/Tanjim-Islam",
+};

@@ -1,31 +1,37 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { Facebook, Github, Linkedin, Mail } from "lucide-react"
-import toast, { Toaster } from "react-hot-toast"
-import { StarryBackground } from "@/components/StarryBackground"
-import { Navigation } from "@/components/Navigation"
-import { AnimatedText } from "@/components/AnimatedText"
-import { Card } from "@/components/Card"
-import { Button } from "@/components/Button"
-import { SocialIcon } from "@/components/SocialIcon"
-import { CustomCursor } from "@/components/CustomCursor"
-import { SkillCloud } from "@/components/SkillCloud"
-import { Contact } from "@/components/Contact"
-import { navLinks, experiences, portfolio, skills } from "@/data/portfolioData"
+import type React from "react";
+import { Github, Linkedin, Mail, Facebook } from "lucide-react";
+import toast, { Toaster } from "react-hot-toast";
+import { StarryBackground } from "@/components/StarryBackground";
+import { Navigation } from "@/components/Navigation";
+import { AnimatedText } from "@/components/AnimatedText";
+import { Card } from "@/components/Card";
+import { Button } from "@/components/Button";
+import { SocialIcon } from "@/components/SocialIcon";
+import { CustomCursor } from "@/components/CustomCursor";
+import { SkillCloud } from "@/components/SkillCloud";
+import {
+  navLinks,
+  experiences,
+  portfolio,
+  skills,
+  education,
+  research,
+} from "@/data/portfolioData";
 
 const PortfolioPage: React.FC = () => {
   const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    navigator.clipboard.writeText("example@email.com")
+    e.preventDefault();
+    navigator.clipboard.writeText("tanjim.riju1243@gmail.com");
     toast.success("Email Copied!", {
       style: {
         background: "#333",
         color: "#fff",
       },
       position: "top-center",
-    })
-  }
+    });
+  };
 
   return (
     <div className="relative min-h-screen text-white">
@@ -35,20 +41,25 @@ const PortfolioPage: React.FC = () => {
 
       <Navigation links={navLinks} />
 
-      <div className="container mx-auto px-4 py-20">
-        <section id="hero" className="mb-20 text-center">
+      <div className="container mx-auto px-4 pb-8">
+        <section id="hero" className="pt-24 mb-20 text-center">
+          {" "}
+          {/* Added pt-24 for top padding */}
           <h1 className="text-4xl font-bold mb-4">Tanjim Islam Riju</h1>
           <AnimatedText texts={["Software Engineer", "AI Developer"]} />
         </section>
 
+        {/* Rest of the sections remain unchanged */}
         <section id="education" className="mb-20">
           <h2 className="text-3xl font-semibold mb-6">Education</h2>
-          <Card>
-            <h3 className="text-xl font-semibold mb-2">
-              Bachelor of Science in Computer Science
-            </h3>
-            <p className="text-gray-300">University of Example, 2020-2024</p>
-          </Card>
+          {education.map((edu, index) => (
+            <Card key={index} className="mb-4">
+              <h3 className="text-xl font-semibold mb-2">{edu.degree}</h3>
+              <p className="text-gray-300">
+                {edu.institution}, {edu.date}
+              </p>
+            </Card>
+          ))}
         </section>
 
         <section id="skills" className="mb-20">
@@ -100,9 +111,63 @@ const PortfolioPage: React.FC = () => {
           ))}
         </section>
 
-        <Contact />
+        <section id="research" className="mb-20">
+          <h2 className="text-3xl font-semibold mb-6">Research & Thesis</h2>
+          {research.map((item, index) => (
+            <Card key={index} className="mb-6">
+              <div className="flex justify-between items-start mb-2">
+                <h3 className="text-xl font-semibold">{item.title}</h3>
+                <span className="text-sm bg-white/10 px-2 py-1 rounded">
+                  {item.type}
+                </span>
+              </div>
+              <p className="text-gray-300">{item.description}</p>
+            </Card>
+          ))}
+        </section>
 
-        <footer className="mt-auto pt-12 border-t border-white/10">
+        <section id="contact" className="mb-12">
+          <h2 className="text-3xl font-semibold mb-6">Contact</h2>
+          <Card>
+            <form className="space-y-4">
+              <div>
+                <label htmlFor="name" className="block mb-2">
+                  Name
+                </label>
+                <input
+                  id="name"
+                  type="text"
+                  className="w-full bg-white/20 p-2 rounded-xl"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block mb-2">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  className="w-full bg-white/20 p-2 rounded-xl"
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  rows={4}
+                  className="w-full bg-white/20 p-2 rounded-xl"
+                ></textarea>
+              </div>
+              <Button type="submit" className="w-full">
+                Send Message
+              </Button>
+            </form>
+          </Card>
+        </section>
+
+        <footer className="mt-auto pt-8 border-t border-white/10">
           <div className="flex flex-col items-center space-y-4">
             <div className="flex justify-center items-center space-x-4">
               <SocialIcon icon={Facebook} href="https://www.facebook.com/tanjim.islam1" />
@@ -111,13 +176,13 @@ const PortfolioPage: React.FC = () => {
               <SocialIcon icon={Mail} href="#" onClick={handleEmailClick} />
             </div>
             <p className="text-sm text-gray-400">
-              &copy; 2023 Tanjim Islam Riju. All rights reserved.
+              &copy; 2025 Tanjim Islam Riju. All rights reserved.
             </p>
           </div>
         </footer>
       </div>
     </div>
   );
-}
+};
 
-export default PortfolioPage
+export default PortfolioPage;
