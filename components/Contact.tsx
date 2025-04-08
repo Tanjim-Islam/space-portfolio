@@ -1,49 +1,53 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import emailjs from "@emailjs/browser"
-import { Card } from "./Card"
-import { Button } from "./Button"
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import { Card } from "./Card";
+import { Button } from "./Button";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-  })
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle")
+  });
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setStatus("sending")
+    e.preventDefault();
+    setStatus("sending");
 
     try {
       await emailjs.send(
-        "service_t84szxg",
-        "template_pf7k77l",
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
         {
-          to_email: "tanjim.riju1243@gmail.com",
+          to_email: process.env.NEXT_PUBLIC_CONTACT_EMAIL,
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
         },
-        "7hkg3LDcaGSzqgXbd"
-      )
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
+      );
 
-      setStatus("success")
-      setFormData({ name: "", email: "", message: "" })
+      setStatus("success");
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      console.error("Failed to send email:", error)
-      setStatus("error")
+      console.error("Failed to send email:", error);
+      setStatus("error");
     }
-  }
+  };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
-    }))
-  }
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   return (
     <section id="contact" className="mb-20">
@@ -92,17 +96,25 @@ export const Contact = () => {
               className="w-full bg-white/20 p-2 rounded-xl"
             />
           </div>
-          <Button type="submit" className="w-full" disabled={status === "sending"}>
+          <Button
+            type="submit"
+            className="w-full"
+            disabled={status === "sending"}
+          >
             {status === "sending" ? "Sending..." : "Send Message"}
           </Button>
           {status === "success" && (
-            <p className="text-green-500 text-center">Message sent successfully!</p>
+            <p className="text-green-500 text-center">
+              Message sent successfully!
+            </p>
           )}
           {status === "error" && (
-            <p className="text-red-500 text-center">Failed to send message. Please try again.</p>
+            <p className="text-red-500 text-center">
+              Failed to send message. Please try again.
+            </p>
           )}
         </form>
       </Card>
     </section>
-  )
-}
+  );
+};

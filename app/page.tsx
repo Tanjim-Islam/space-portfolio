@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-import { Github, Linkedin, Mail, Facebook } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink, Facebook } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 import { StarryBackground } from "@/components/StarryBackground";
 import { Navigation } from "@/components/Navigation";
@@ -19,6 +19,7 @@ import {
   education,
   research,
 } from "@/data/portfolioData";
+import Link from "next/link";
 
 const PortfolioPage: React.FC = () => {
   const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -49,11 +50,13 @@ const PortfolioPage: React.FC = () => {
           <AnimatedText texts={["Software Engineer", "AI Developer"]} />
         </section>
 
-        {/* Rest of the sections remain unchanged */}
         <section id="education" className="mb-20">
           <h2 className="text-3xl font-semibold mb-6">Education</h2>
           {education.map((edu, index) => (
-            <Card key={index} className="mb-4">
+            <Card
+              key={index}
+              className="mb-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-500/20"
+            >
               <h3 className="text-xl font-semibold mb-2">{edu.degree}</h3>
               <p className="text-gray-300">
                 {edu.institution}, {edu.date}
@@ -70,9 +73,16 @@ const PortfolioPage: React.FC = () => {
         </section>
 
         <section id="portfolio" className="mb-20">
-          <h2 className="text-3xl font-semibold mb-6">Portfolio</h2>
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-3xl font-semibold">Portfolio</h2>
+            <Link href="/projects">
+              <Button className="w-full flex items-center justify-center gap-2 bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50">
+                View All <ExternalLink size={16} />
+              </Button>
+            </Link>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {portfolio.map((project, index) => (
+            {portfolio.slice(0, 6).map((project, index) => (
               <Card key={index} tilt={true}>
                 <img
                   src={project.image || "/placeholder.svg"}
@@ -82,7 +92,7 @@ const PortfolioPage: React.FC = () => {
                 <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
                 <p className="text-gray-300 mb-4">{project.description}</p>
                 <a
-                  href={project.link}
+                  href={project.demo || project.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-300 hover:underline"
@@ -97,7 +107,10 @@ const PortfolioPage: React.FC = () => {
         <section id="experience" className="mb-20">
           <h2 className="text-3xl font-semibold mb-6">Experience</h2>
           {experiences.map((exp, index) => (
-            <Card key={index} className="mb-6">
+            <Card
+              key={index}
+              className="mb-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-green-500/20"
+            >
               <h3 className="text-xl font-semibold mb-2">{exp.title}</h3>
               <p className="text-gray-300 mb-2">
                 {exp.company_name} | {exp.date}
@@ -114,7 +127,10 @@ const PortfolioPage: React.FC = () => {
         <section id="research" className="mb-20">
           <h2 className="text-3xl font-semibold mb-6">Research & Thesis</h2>
           {research.map((item, index) => (
-            <Card key={index} className="mb-6">
+            <Card
+              key={index}
+              className="mb-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-purple-500/20"
+            >
               <div className="flex justify-between items-start mb-2">
                 <h3 className="text-xl font-semibold">{item.title}</h3>
                 <span className="text-sm bg-white/10 px-2 py-1 rounded">
@@ -170,13 +186,22 @@ const PortfolioPage: React.FC = () => {
         <footer className="mt-auto pt-8 border-t border-white/10">
           <div className="flex flex-col items-center space-y-4">
             <div className="flex justify-center items-center space-x-4">
-              <SocialIcon icon={Facebook} href="https://www.facebook.com/tanjim.islam1" />
-              <SocialIcon icon={Github} href="https://github.com/Tanjim-Islam" />
-              <SocialIcon icon={Linkedin} href="https://www.linkedin.com/in/tanjim-riju/" />
+              <SocialIcon
+                icon={Facebook}
+                href="https://www.facebook.com/tanjim.islam1"
+              />
+              <SocialIcon
+                icon={Github}
+                href="https://github.com/Tanjim-Islam"
+              />
+              <SocialIcon
+                icon={Linkedin}
+                href="https://www.linkedin.com/in/tanjim-riju/"
+              />
               <SocialIcon icon={Mail} href="#" onClick={handleEmailClick} />
             </div>
             <p className="text-sm text-gray-400">
-              &copy; 2025 Tanjim Islam Riju. All rights reserved.
+              &copy; 2023 Tanjim Islam Riju. All rights reserved.
             </p>
           </div>
         </footer>

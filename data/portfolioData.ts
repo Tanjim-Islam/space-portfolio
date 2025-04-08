@@ -45,42 +45,103 @@ export const portfolio = [
     description:
       "Full-stack file storage application with secure authentication and file management capabilities",
     image: "/placeholder.svg?height=200&width=300",
-    link: "https://github.com/Tanjim-Islam/Storage-management",
+    github: "https://github.com/Tanjim-Islam/Storage-management",
+    demo: "https://storeit-site.netlify.app/",
   },
   {
     name: "Algorithm Visualizer",
     description:
       "Interactive tool for visualizing various algorithms including sorting, searching, and graph algorithms",
     image: "/placeholder.svg?height=200&width=300",
-    link: "https://github.com/Tanjim-Islam/Algorithm-Visualizer",
+    github: "https://github.com/Tanjim-Islam/Algorithm-Visualizer",
+    demo: "https://visualize-algo.netlify.app/",
   },
   {
     name: "PinkShop",
     description:
       "E-commerce frontend with modern UI, product catalog, cart functionality, and responsive design",
     image: "/placeholder.svg?height=200&width=300",
-    link: "https://github.com/Tanjim-Islam/ecommerce-pinkshop",
+    github: "https://github.com/Tanjim-Islam/ecommerce-pinkshop",
+    demo: "https://ecom-pinkshop.netlify.app",
   },
   {
     name: "HomieStay",
     description:
       "P2P booking platform similar to Airbnb with property listings, user authentication, and booking system",
     image: "/placeholder.svg?height=200&width=300",
-    link: "https://github.com/Tanjim-Islam/HomieStay",
+    github: "https://github.com/Tanjim-Islam/HomieStay",
+    demo: "https://homie-stay.vercel.app",
   },
+  {
+    name: "Portfolio Website",
+    description:
+      "Personal portfolio website showcasing skills, projects, and professional experience",
+    image: "/placeholder.svg?height=200&width=300",
+    github: "https://github.com/Tanjim-Islam/Portfolio",
+    demo: "https://tanjimriju.vercel.app",
+  },
+  {
+    name: "Chess Clock",
+    description:
+      "Web-based chess clock application with customizable time controls and themes",
+    image: "/placeholder.svg?height=200&width=300",
+    github: "https://github.com/Tanjim-Islam/Chess-Clock",
+    demo: "https://chess-clock-blue.vercel.app",
+  },
+];
+
+export const allProjects = [
+  ...portfolio,
   {
     name: "Hand Sign Recognition with YOLOv8",
     description:
       "Computer vision project that detects and classifies hand signs in real-time using YOLOv8 object detection framework",
     image: "/placeholder.svg?height=200&width=300",
-    link: "https://github.com/Tanjim-Islam/Hand-Sign-Recognition-with-YOLOv8",
+    github: "https://github.com/Tanjim-Islam/Hand-Sign-Recognition-with-YOLOv8",
+    demo: null,
   },
   {
     name: "Fake News Detection",
     description:
       "ML system using the FaKnow library to detect fake news with high accuracy across multiple datasets",
     image: "/placeholder.svg?height=200&width=300",
-    link: "https://github.com/Tanjim-Islam/Fake-News-Detection",
+    github: "https://github.com/Tanjim-Islam/Fake-News-Detection",
+    demo: null,
+  },
+  {
+    name: "Emotion Prediction",
+    description:
+      "Neural network-based text classification system for emotion prediction from textual content",
+    image: "/placeholder.svg?height=200&width=300",
+    github:
+      "https://github.com/Tanjim-Islam/Emotion-Prediction-Using-Text-Classification-with-Neural-Networks",
+    demo: null,
+  },
+  {
+    name: "Parkinson's Disease Prediction",
+    description:
+      "SVM-based machine learning model for early detection of Parkinson's disease from medical data",
+    image: "/placeholder.svg?height=200&width=300",
+    github:
+      "https://github.com/Tanjim-Islam/Parkinson-s-Disease-Prediction-Using-SVM",
+    demo: null,
+  },
+  {
+    name: "Kidney Disease Prediction",
+    description:
+      "Multiple machine learning models for predicting kidney disease from patient data",
+    image: "/placeholder.svg?height=200&width=300",
+    github:
+      "https://github.com/Tanjim-Islam/Kidney-Disease-Prediction-Using-Machine-Learning",
+    demo: null,
+  },
+  {
+    name: "Bangla Voice Bot",
+    description:
+      "Chatbot with sentiment analysis capabilities for Bangla language",
+    image: "/placeholder.svg?height=200&width=300",
+    github: "https://github.com/Tanjim-Islam/Bangla-Voice-Bot",
+    demo: null,
   },
 ];
 
