@@ -1,89 +1,101 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { useRef, useEffect } from "react"
-import { motion, useAnimation } from "framer-motion"
-import type { Skill } from "@/data/portfolioData"
-import { categoryColors } from "@/data/portfolioData"
+import type React from "react";
+import { useRef, useEffect, useState } from "react";
+import { motion, useMotionValue, useAnimation } from "framer-motion";
+import type { Skill } from "@/data/portfolioData";
+import { categoryColors } from "@/data/portfolioData";
+
+const BUBBLE_SPEED = 1; // Reduced speed for smoother movement
 
 interface SkillBubbleProps {
-  skill: Skill
-  containerWidth: number
-  containerHeight: number
-  onPositionUpdate: (id: string, x: number, y: number, radius: number, velocity: { x: number; y: number }) => void
-  onBubbleClick: (x: number, y: number) => void
+  skill: Skill;
+  containerWidth: number;
+  containerHeight: number;
+  onBubbleClick: (x: number, y: number) => void;
+  isActive: boolean;
+  setActiveBubble: (skillName: string | null) => void;
 }
 
 export const SkillBubble: React.FC<SkillBubbleProps> = ({
   skill,
   containerWidth,
   containerHeight,
-  onPositionUpdate,
   onBubbleClick,
+  isActive,
+  setActiveBubble,
 }) => {
-  const controls = useAnimation()
-  const elementRef = useRef<HTMLDivElement>(null)
-  const velocityRef = useRef({ x: (Math.random() - 0.5) * 1.5, y: (Math.random() - 0.5) * 1.5 })
-  const positionRef = useRef({ x: Math.random() * (containerWidth - 100), y: Math.random() * (containerHeight - 40) })
+  const elementRef = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(Math.random() * containerWidth);
+  const y = useMotionValue(Math.random() * containerHeight);
+  const controls = useAnimation();
+  const velocityRef = useRef({
+    x: (Math.random() - 0.5) * BUBBLE_SPEED,
+    y: (Math.random() - 0.5) * BUBBLE_SPEED,
+  });
+  const [isTouched, setIsTouched] = useState(false);
 
   useEffect(() => {
+    let animationFrameId: number;
+
     const updatePosition = () => {
-      if (elementRef.current) {
-        const rect = elementRef.current.getBoundingClientRect()
-        const radius = rect.width / 2
+      if (elementRef.current && !isActive) {
+        const rect = elementRef.current.getBoundingClientRect();
+        let newX = x.get() + velocityRef.current.x;
+        let newY = y.get() + velocityRef.current.y;
 
-        // Update position based on velocity
-        positionRef.current.x += velocityRef.current.x
-        positionRef.current.y += velocityRef.current.y
-
-        // Bounce off container walls with minimum speed
-        const minSpeed = 0.8
-        if (positionRef.current.x < 0 || positionRef.current.x > containerWidth - rect.width) {
-          velocityRef.current.x *= -1
-          velocityRef.current.x = Math.sign(velocityRef.current.x) * Math.max(Math.abs(velocityRef.current.x), minSpeed)
+        // Simple boundary check and collision response
+        if (newX < 0 || newX > containerWidth - rect.width) {
+          velocityRef.current.x *= -1;
+          newX = Math.max(0, Math.min(newX, containerWidth - rect.width));
         }
-        if (positionRef.current.y < 0 || positionRef.current.y > containerHeight - rect.height) {
-          velocityRef.current.y *= -1
-          velocityRef.current.y = Math.sign(velocityRef.current.y) * Math.max(Math.abs(velocityRef.current.y), minSpeed)
+        if (newY < 0 || newY > containerHeight - rect.height) {
+          velocityRef.current.y *= -1;
+          newY = Math.max(0, Math.min(newY, containerHeight - rect.height));
         }
 
-        // Keep within bounds
-        positionRef.current.x = Math.max(0, Math.min(positionRef.current.x, containerWidth - rect.width))
-        positionRef.current.y = Math.max(0, Math.min(positionRef.current.y, containerHeight - rect.height))
-
-        // Update position and notify parent
-        controls.set({
-          x: positionRef.current.x,
-          y: positionRef.current.y,
-        })
-
-        onPositionUpdate(
-          skill.name,
-          positionRef.current.x + radius,
-          positionRef.current.y + radius,
-          radius,
-          velocityRef.current,
-        )
+        x.set(newX);
+        y.set(newY);
       }
-    }
 
-    const interval = setInterval(updatePosition, 16)
-    return () => clearInterval(interval)
-  }, [controls, skill.name, onPositionUpdate, containerWidth, containerHeight])
+      animationFrameId = requestAnimationFrame(updatePosition);
+    };
+
+    updatePosition();
+
+    return () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+  }, [containerWidth, containerHeight, x, y, isActive]);
 
   const handleClick = (event: React.MouseEvent) => {
-    onBubbleClick(event.clientX, event.clientY)
-  }
+    onBubbleClick(event.clientX, event.clientY);
+    setActiveBubble(isActive ? null : skill.name);
+  };
+
+  const handleTouchStart = () => {
+    setIsTouched(true);
+    setActiveBubble(isActive ? null : skill.name);
+  };
+
+  const handleTouchEnd = () => {
+    setIsTouched(false);
+  };
 
   return (
     <motion.div
       ref={elementRef}
       className="absolute backdrop-blur-sm rounded-full cursor-pointer"
       style={{
-        background: `linear-gradient(45deg, ${categoryColors[skill.category]}33, ${categoryColors[skill.category]}66)`,
+        background: `linear-gradient(45deg, ${
+          categoryColors[skill.category]
+        }33, ${categoryColors[skill.category]}66)`,
         boxShadow: `0 0 ${skill.level * 4}px ${categoryColors[skill.category]}`,
+        x,
+        y,
       }}
-      initial={{ x: positionRef.current.x, y: positionRef.current.y }}
       animate={controls}
       whileHover={{
         scale: 1.1,
@@ -91,6 +103,10 @@ export const SkillBubble: React.FC<SkillBubbleProps> = ({
       }}
       whileTap={{ scale: 0.95 }}
       onClick={handleClick}
+      onHoverStart={() => !isTouched && setActiveBubble(skill.name)}
+      onHoverEnd={() => !isTouched && setActiveBubble(null)}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       <div className="relative px-4 py-2 group">
         <span className="text-white">{skill.name}</span>
@@ -102,31 +118,26 @@ export const SkillBubble: React.FC<SkillBubbleProps> = ({
               key={i}
               className="w-1 h-1 rounded-full"
               style={{
-                backgroundColor: i < skill.level ? categoryColors[skill.category] : "rgba(255,255,255,0.2)",
+                backgroundColor:
+                  i < skill.level
+                    ? categoryColors[skill.category]
+                    : "rgba(255,255,255,0.2)",
               }}
             />
           ))}
         </div>
 
         {/* Tooltip */}
-        <div 
-          className="absolute z-50 p-2 bg-black/90 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none w-48"
-          style={{
-            bottom: "100%",
-            left: "50%",
-            transform: `translate(${
-              positionRef.current.x > containerWidth - 200 ? "-100%" :
-              positionRef.current.x < 200 ? "0%" :
-              "-50%"
-            }, 8px)`,
-          }}
-        >
-          <p className="font-semibold mb-1" style={{ color: categoryColors[skill.category] }}>
+        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-48 p-2 bg-black/90 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+          <p
+            className="font-semibold mb-1"
+            style={{ color: categoryColors[skill.category] }}
+          >
             {skill.category.toUpperCase()}
           </p>
           <p className="text-white/80">{skill.description}</p>
         </div>
       </div>
     </motion.div>
-  )
-}
+  );
+};

@@ -44,7 +44,9 @@ const PortfolioPage: React.FC = () => {
         <section id="education" className="mb-20">
           <h2 className="text-3xl font-semibold mb-6">Education</h2>
           <Card>
-            <h3 className="text-xl font-semibold mb-2">Bachelor of Science in Computer Science</h3>
+            <h3 className="text-xl font-semibold mb-2">
+              Bachelor of Science in Computer Science
+            </h3>
             <p className="text-gray-300">University of Example, 2020-2024</p>
           </Card>
         </section>
@@ -100,18 +102,22 @@ const PortfolioPage: React.FC = () => {
 
         <Contact />
 
-        <footer className="text-center py-8">
-          <p className="mb-6">&copy; 2023 Tanjim Islam Riju. All rights reserved.</p>
-          <div className="flex justify-center items-center space-x-4">
-            <SocialIcon icon={Facebook} href="https://facebook.com" />
-            <SocialIcon icon={Github} href="https://github.com" />
-            <SocialIcon icon={Linkedin} href="https://linkedin.com" />
-            <SocialIcon icon={Mail} href="#" onClick={handleEmailClick} />
+        <footer className="mt-auto pt-12 border-t border-white/10">
+          <div className="flex flex-col items-center space-y-4">
+            <div className="flex justify-center items-center space-x-4">
+              <SocialIcon icon={Facebook} href="https://www.facebook.com/tanjim.islam1" />
+              <SocialIcon icon={Github} href="https://github.com/Tanjim-Islam" />
+              <SocialIcon icon={Linkedin} href="https://www.linkedin.com/in/tanjim-riju/" />
+              <SocialIcon icon={Mail} href="#" onClick={handleEmailClick} />
+            </div>
+            <p className="text-sm text-gray-400">
+              &copy; 2023 Tanjim Islam Riju. All rights reserved.
+            </p>
           </div>
         </footer>
       </div>
     </div>
-  )
+  );
 }
 
 export default PortfolioPage
