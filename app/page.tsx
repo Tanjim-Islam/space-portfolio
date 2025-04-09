@@ -83,23 +83,24 @@ const PortfolioPage: React.FC = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {portfolio.slice(0, 6).map((project, index) => (
-              <Card key={index} tilt={true}>
-                <img
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.name}
-                  className="w-full h-40 object-cover mb-4 rounded-xl"
-                />
-                <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
-                <p className="text-gray-300 mb-4">{project.description}</p>
-                <a
-                  href={project.demo || project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-300 hover:underline"
-                >
-                  View Project
-                </a>
-              </Card>
+              <Link
+                key={index}
+                href={project.demo || project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Card tilt={true} className="h-full">
+                  <img
+                    src={project.image || "/placeholder.svg"}
+                    alt={project.name}
+                    className="w-full h-40 object-cover mb-4 rounded-xl"
+                  />
+                  <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
+                  <p className="text-gray-300 mb-4">{project.description}</p>
+                  <span className="text-blue-300">View Project</span>
+                </Card>
+              </Link>
             ))}
           </div>
         </section>
@@ -176,7 +177,10 @@ const PortfolioPage: React.FC = () => {
                   className="w-full bg-white/20 p-2 rounded-xl"
                 ></textarea>
               </div>
-              <Button type="submit" className="w-full">
+              <Button
+                type="submit"
+                className="w-full flex items-center justify-center gap-2 bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50"
+              >
                 Send Message
               </Button>
             </form>

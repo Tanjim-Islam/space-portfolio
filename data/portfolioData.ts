@@ -4,6 +4,7 @@ export const navLinks = [
   { id: "skills", title: "Skills" },
   { id: "portfolio", title: "Portfolio" },
   { id: "experience", title: "Experience" },
+  { id: "research", title: "R&T" },
   { id: "contact", title: "Contact" },
 ];
 
@@ -44,7 +45,7 @@ export const portfolio = [
     name: "StoreIt",
     description:
       "Full-stack file storage application with secure authentication and file management capabilities",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/projects/storeit.jpg",
     github: "https://github.com/Tanjim-Islam/Storage-management",
     demo: "https://storeit-site.netlify.app/",
   },
@@ -52,7 +53,7 @@ export const portfolio = [
     name: "Algorithm Visualizer",
     description:
       "Interactive tool for visualizing various algorithms including sorting, searching, and graph algorithms",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/projects/algoviz.jpg",
     github: "https://github.com/Tanjim-Islam/Algorithm-Visualizer",
     demo: "https://visualize-algo.netlify.app/",
   },
@@ -60,7 +61,7 @@ export const portfolio = [
     name: "PinkShop",
     description:
       "E-commerce frontend with modern UI, product catalog, cart functionality, and responsive design",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/projects/pinkshop.jpg",
     github: "https://github.com/Tanjim-Islam/ecommerce-pinkshop",
     demo: "https://ecom-pinkshop.netlify.app",
   },
@@ -68,15 +69,15 @@ export const portfolio = [
     name: "HomieStay",
     description:
       "P2P booking platform similar to Airbnb with property listings, user authentication, and booking system",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/projects/homiestay.jpg",
     github: "https://github.com/Tanjim-Islam/HomieStay",
     demo: "https://homie-stay.vercel.app",
   },
   {
-    name: "Portfolio Website",
+    name: "3D Portfolio Website",
     description:
       "Personal portfolio website showcasing skills, projects, and professional experience",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/projects/portfolio.jpg",
     github: "https://github.com/Tanjim-Islam/Portfolio",
     demo: "https://tanjimriju.vercel.app",
   },
@@ -84,7 +85,7 @@ export const portfolio = [
     name: "Chess Clock",
     description:
       "Web-based chess clock application with customizable time controls and themes",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/projects/chessclock.jpg",
     github: "https://github.com/Tanjim-Islam/Chess-Clock",
     demo: "https://chess-clock-blue.vercel.app",
   },
@@ -96,7 +97,7 @@ export const allProjects = [
     name: "Hand Sign Recognition with YOLOv8",
     description:
       "Computer vision project that detects and classifies hand signs in real-time using YOLOv8 object detection framework",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/projects/handsignrecognition.jpg",
     github: "https://github.com/Tanjim-Islam/Hand-Sign-Recognition-with-YOLOv8",
     demo: null,
   },
@@ -104,7 +105,7 @@ export const allProjects = [
     name: "Fake News Detection",
     description:
       "ML system using the FaKnow library to detect fake news with high accuracy across multiple datasets",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/projects/fakenewsdetection.jpg",
     github: "https://github.com/Tanjim-Islam/Fake-News-Detection",
     demo: null,
   },
@@ -112,7 +113,7 @@ export const allProjects = [
     name: "Emotion Prediction",
     description:
       "Neural network-based text classification system for emotion prediction from textual content",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/projects/emotionprediction.jpg",
     github:
       "https://github.com/Tanjim-Islam/Emotion-Prediction-Using-Text-Classification-with-Neural-Networks",
     demo: null,
@@ -121,7 +122,7 @@ export const allProjects = [
     name: "Parkinson's Disease Prediction",
     description:
       "SVM-based machine learning model for early detection of Parkinson's disease from medical data",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/projects/parkinsondisease.jpg",
     github:
       "https://github.com/Tanjim-Islam/Parkinson-s-Disease-Prediction-Using-SVM",
     demo: null,
@@ -130,7 +131,7 @@ export const allProjects = [
     name: "Kidney Disease Prediction",
     description:
       "Multiple machine learning models for predicting kidney disease from patient data",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/projects/kidneydisease.jpg",
     github:
       "https://github.com/Tanjim-Islam/Kidney-Disease-Prediction-Using-Machine-Learning",
     demo: null,
@@ -139,7 +140,7 @@ export const allProjects = [
     name: "Bangla Voice Bot",
     description:
       "Chatbot with sentiment analysis capabilities for Bangla language",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/projects/banglavoicebot.jpg",
     github: "https://github.com/Tanjim-Islam/Bangla-Voice-Bot",
     demo: null,
   },
