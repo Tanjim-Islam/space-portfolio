@@ -205,7 +205,7 @@ const PortfolioPage: React.FC = () => {
               <SocialIcon icon={Mail} href="#" onClick={handleEmailClick} />
             </div>
             <p className="text-sm text-gray-400">
-              &copy; 2023 Tanjim Islam Riju. All rights reserved.
+              &copy; 2025 Tanjim Islam Riju. All rights reserved.
             </p>
           </div>
         </footer>
