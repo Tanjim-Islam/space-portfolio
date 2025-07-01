@@ -4,6 +4,7 @@ import type React from "react";
 import { Github, Linkedin, Mail, ExternalLink, Facebook } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 import { StarryBackground } from "@/components/StarryBackground";
+import emailjs from '@emailjs/browser';
 import { Navigation } from "@/components/Navigation";
 import { AnimatedText } from "@/components/AnimatedText";
 import { Card } from "@/components/Card";
@@ -32,6 +33,72 @@ const PortfolioPage: React.FC = () => {
       },
       position: "top-center",
     });
+  };
+
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    // Show loading toast
+    const loadingToast = toast.loading("Sending message...", {
+      style: {
+        background: "#333",
+        color: "#fff",
+      },
+      position: "top-center",
+    });
+    
+    // Get form data
+    const form = e.currentTarget;
+    const emailInput = form.querySelector('input[name="reply_to"]') as HTMLInputElement;
+    
+    // Create a hidden field for the from_email
+    const hiddenEmailField = document.createElement('input');
+    hiddenEmailField.type = 'hidden';
+    hiddenEmailField.name = 'from_email';
+    hiddenEmailField.value = emailInput.value;
+    form.appendChild(hiddenEmailField);
+    
+    // Send email using EmailJS
+    emailjs.sendForm(
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_t84szxg',
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_pf7k77l',
+      form,
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '7hkg3LDcaGSzqgXbd'
+    )
+      .then(() => {
+        // Dismiss loading toast
+        toast.dismiss(loadingToast);
+        
+        // Show success toast
+        toast.success("Message Sent!", {
+          style: {
+            background: "#333",
+            color: "#fff",
+          },
+          position: "top-center",
+        });
+        
+        // Remove the hidden field
+        form.removeChild(hiddenEmailField);
+        
+        // Reset form
+        form.reset();
+      })
+      .catch((error) => {
+        console.error('Error sending email:', error);
+        
+        // Dismiss loading toast
+        toast.dismiss(loadingToast);
+        
+        // Show error toast
+        toast.error("Failed to send message. Please try again.", {
+          style: {
+            background: "#333",
+            color: "#fff",
+          },
+          position: "top-center",
+        });
+      });
   };
 
   return (
@@ -146,25 +213,29 @@ const PortfolioPage: React.FC = () => {
         <section id="contact" className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Contact</h2>
           <Card>
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleFormSubmit}>
               <div>
-                <label htmlFor="name" className="block mb-2">
+                <label htmlFor="from_name" className="block mb-2">
                   Name
                 </label>
                 <input
-                  id="name"
+                  id="from_name"
+                  name="from_name"
                   type="text"
                   className="w-full bg-white/20 p-2 rounded-xl"
+                  required
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block mb-2">
+                <label htmlFor="reply_to" className="block mb-2">
                   Email
                 </label>
                 <input
-                  id="email"
+                  id="reply_to"
+                  name="reply_to"
                   type="email"
                   className="w-full bg-white/20 p-2 rounded-xl"
+                  required
                 />
               </div>
               <div>
@@ -173,8 +244,10 @@ const PortfolioPage: React.FC = () => {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={4}
                   className="w-full bg-white/20 p-2 rounded-xl"
+                  required
                 ></textarea>
               </div>
               <Button

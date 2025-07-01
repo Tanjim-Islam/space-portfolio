@@ -20,6 +20,49 @@ export const experiences = [
       "Utilized <span style='color: white;'>Git</span> for version control and collaborative development",
     ],
   },
+  {
+    title: "Software Engineer",
+    company_name: "Kaz Software Ltd.",
+    date: "July 2023 - May 2024",
+    details: [
+      "Designed RESTful services in <span style='color: white;'>Node.js</span> backed by <span style='color: white;'>PostgreSQL</span>, increasing data retrieval efficiency by 25%",
+      "Led UI consistency across projects using <span style='color: white;'>TailwindCSS</span> and <span style='color: white;'>Adobe Illustrator</span>, reducing design inconsistencies by 40%",
+      "Migrated microservices to <span style='color: white;'>AWS Lambda</span>, improving system reliability by 30% and reducing operational costs by 20%",
+    ],
+  },
+  {
+    title: "Backend Engineer",
+    company_name: "Infolytx",
+    date: "January 2023 - June 2023",
+    details: [
+      "Developed REST APIs and backend pipelines using <span style='color: white;'>Python</span> and <span style='color: white;'>PostgreSQL</span>",
+      "Built internal dashboards with custom graphics using <span style='color: white;'>Photoshop</span> and <span style='color: white;'>Dreamweaver</span>",
+    ],
+  },
+  {
+    title: "Mobile Developer",
+    company_name: "LeadSoft Bangladesh Ltd.",
+    date: "July 2022 - December 2022",
+    details: [
+      "Built mobile UI components and integrated <span style='color: white;'>Firebase</span> for real-time user tracking",
+    ],
+  },
+  {
+    title: "DevOps Intern",
+    company_name: "DataSoft Systems Bangladesh Ltd.",
+    date: "January 2022 - June 2022",
+    details: [
+      "Automated CI/CD pipelines and managed containerized deployments using <span style='color: white;'>Docker</span> and <span style='color: white;'>Linux</span> servers",
+    ],
+  },
+  {
+    title: "UI/UX Design Assistant",
+    company_name: "Genex Infosys Ltd.",
+    date: "September 2021 - December 2021",
+    details: [
+      "Designed web and mobile graphics using <span style='color: white;'>Photoshop</span>, <span style='color: white;'>Illustrator</span>, and <span style='color: white;'>Dreamweaver</span>",
+    ],
+  },
 ];
 
 export const education = [
