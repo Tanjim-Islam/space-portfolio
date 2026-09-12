@@ -2,7 +2,9 @@ export const SITE_IDS = ["academic", "neo", "website"] as const;
 export type SiteId = (typeof SITE_IDS)[number];
 export type Scope = SiteId | "shared";
 export type ProjectCategory = "web" | "ml";
-export const projectCategory = (project: { category?: string }): ProjectCategory =>
+export const projectCategory = (project: {
+  category?: string;
+}): ProjectCategory =>
   ["ai", "ml"].includes(project.category ?? "") ? "ml" : "web";
 export type SectionKey =
   | "about"
@@ -107,7 +109,7 @@ export const SITES: Record<
     name: "Academic Portfolio",
     shortName: "Academic",
     port: 3101,
-    url: "https://tanjimriju.site",
+    url: "https://tanjimriju.online",
     sections: [
       "about",
       "education",
