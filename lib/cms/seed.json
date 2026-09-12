@@ -1,0 +1,829 @@
+{
+  "shared": {
+    "profile": {
+      "fullName": "Tanjim Islam Riju",
+      "email": "tanjim.riju1243@gmail.com",
+      "phone": "+8801310817887",
+      "location": "Dhaka, Bangladesh",
+      "timezone": "UTC +06:00",
+      "github": "https://github.com/Tanjim-Islam",
+      "linkedin": "https://www.linkedin.com/in/tanjim-riju/",
+      "scholar": "https://scholar.google.com/citations?user=QgYZWXoAAAAJ&hl=en&authuser=2",
+      "facebook": "https://www.facebook.com/tanjim.islam1",
+      "headline": "Software Engineer, AI Developer",
+      "roles": [
+        "Software Engineer",
+        "AI Developer"
+      ],
+      "resumeUrl": ""
+    },
+    "sections": {
+      "education": {
+        "title": "Education",
+        "enabled": true,
+        "items": [
+          {
+            "id": "education-1",
+            "degree": "B.Sc. in Computer Science and Engineering",
+            "institution": "BRAC University",
+            "date": "Jan 2020 - April 2024",
+            "distinction": "Graduated with Distinction",
+            "details": "Thesis: Medical Image Analysis\n\nRelevant Coursework: Artificial Intelligence (CSE422), Neural Networks (CSE425), Algorithms (CSE221), Data Structures (CSE220), Discrete Mathematics (CSE230), Computer Graphics (CSE423)."
+          }
+        ]
+      },
+      "experience": {
+        "title": "Experience",
+        "enabled": true,
+        "items": [
+          {
+            "id": "experience-1",
+            "company": "Invicta Solutions Limited",
+            "role": "Fullstack Developer",
+            "period": "June 2024 – Present",
+            "highlights": [
+              "Developed scalable web and mobile applications using React.js , React Native , and Node.js .",
+              "Built and deployed containerized backend services with AWS ECS and Docker, improving system reliability by 35%.",
+              "Designed visual elements and UI mockups using Figma and Adobe XD .",
+              "Collaborated with design and backend teams to integrate REST APIs and assets seamlessly."
+            ]
+          },
+          {
+            "id": "experience-2",
+            "company": "Kaz Software Ltd.",
+            "role": "Software Engineer",
+            "period": "July 2023 – May 2024",
+            "highlights": [
+              "Designed RESTful services in Node.js with PostgreSQL , increasing data retrieval efficiency by 25%.",
+              "Ensured UI consistency across projects using TailwindCSS and Adobe Illustrator , reducing inconsistencies by 40%.",
+              "Migrated microservices to AWS Lambda , improving reliability by 30% and cutting operational costs by 20%."
+            ]
+          },
+          {
+            "id": "experience-3",
+            "company": "Infolytx",
+            "role": "Backend Engineer",
+            "period": "Jan 2023 – June 2023",
+            "highlights": [
+              "Developed REST APIs and backend pipelines using Python and PostgreSQL .",
+              "Built internal dashboards with custom graphics using Photoshop and Dreamweaver ."
+            ]
+          },
+          {
+            "id": "experience-4",
+            "company": "LeadSoft Bangladesh Ltd.",
+            "role": "Mobile Developer Intern",
+            "period": "July 2022 – Dec 2022",
+            "highlights": [
+              "Built mobile UI components and integrated Firebase for real-time user tracking."
+            ]
+          },
+          {
+            "id": "experience-5",
+            "company": "DataSoft Systems",
+            "role": "DevOps Intern",
+            "period": "Jan 2022 – June 2022",
+            "highlights": [
+              "Automated CI/CD pipelines and managed containerized deployments using Docker and Linux servers."
+            ]
+          },
+          {
+            "id": "experience-6",
+            "company": "Genex Infosys Ltd.",
+            "role": "UI/UX Design Asst.",
+            "period": "Sep 2021 – Dec 2021",
+            "highlights": [
+              "Designed web and mobile graphics using Photoshop , Illustrator , and Dreamweaver ."
+            ]
+          }
+        ]
+      },
+      "research": {
+        "title": "Research",
+        "enabled": true,
+        "items": [
+          {
+            "id": "research-1",
+            "title": "Eyes on the Image: Gaze Supervised Multimodal Learning for Chest X-ray Diagnosis and Report Generation",
+            "authors": "Tanjim Islam Riju, Shuchismita Anwar, Saman Sarker Joy, Farig Sadeque, Swakkhar Shatabda",
+            "venue": "arXiv:2508.13068",
+            "status": "Preprint",
+            "description": "Focused on leveraging gaze data and multimodal contrastive learning to improve medical AI systems. Developed frameworks integrating vision-language models for diagnosis and report generation.",
+            "tags": [
+              "Gaze Supervision",
+              "Multimodal Learning",
+              "Medical AI",
+              "Chest X-ray",
+              "Vision-Language Models"
+            ],
+            "link": "https://arxiv.org/abs/2508.13068"
+          }
+        ]
+      },
+      "projects": {
+        "title": "Projects",
+        "enabled": true,
+        "items": [
+          {
+            "id": "projects-1",
+            "title": "Dictation HUD",
+            "description": "Cross-platform AI dictation HUD with real-time speech-to-text and LLM refinement. Global hotkeys, tray controls, transparent HUD window.",
+            "tags": [
+              "Tauri 2",
+              "React",
+              "TypeScript",
+              "Vite",
+              "Tailwind",
+              "Framer Motion",
+              "Deepgram API",
+              "OpenRouter API"
+            ],
+            "link": "https://github.com/Tanjim-Islam/Dictation-HUD",
+            "image": "",
+            "imageAlt": "Dictation HUD project screenshot",
+            "featured": true
+          },
+          {
+            "id": "projects-2",
+            "title": "Text2SQL Analytics",
+            "description": "Production-ready natural-language to SQL with safety guardrails and evaluation. SELECT-only validation, read-only DB role enforcement.",
+            "tags": [
+              "Python",
+              "FastAPI",
+              "PostgreSQL",
+              "Docker",
+              "pytest",
+              "pandas",
+              "Google Gemini API"
+            ],
+            "link": "https://github.com/Tanjim-Islam/text2sql-analytics",
+            "image": "",
+            "imageAlt": "Text2SQL Analytics project screenshot",
+            "featured": true
+          },
+          {
+            "id": "projects-3",
+            "title": "StoreIt",
+            "description": "Full-stack file storage app with upload, sharing, categorization, and storage analytics. Email OTP auth, real-time updates, interactive charts.",
+            "tags": [
+              "Next.js 14",
+              "TypeScript",
+              "Tailwind",
+              "shadcn/ui",
+              "Appwrite",
+              "Recharts",
+              "React Hook Form",
+              "Zod"
+            ],
+            "link": "https://github.com/Tanjim-Islam/Storage-management",
+            "image": "/projects/storeit.jpg",
+            "imageAlt": "StoreIt project screenshot",
+            "featured": true
+          },
+          {
+            "id": "projects-4",
+            "title": "AI Resume Reviewer",
+            "description": "Resume analysis app with animations and AI feedback. Structured feedback flow, strong UI motion with GSAP and Framer Motion.",
+            "tags": [
+              "Next.js",
+              "TypeScript",
+              "Tailwind",
+              "shadcn/ui",
+              "GSAP",
+              "OpenRouter API",
+              "Google Gemini API",
+              "Zod"
+            ],
+            "link": "https://github.com/Tanjim-Islam/AI-Powered-Resume-Reviewer",
+            "image": "",
+            "imageAlt": "AI Resume Reviewer project screenshot",
+            "featured": true
+          },
+          {
+            "id": "projects-5",
+            "title": "HomieStay",
+            "description": "P2P booking platform like Airbnb with listings and bookings. Real product feel with auth and integrated payments.",
+            "tags": [
+              "Next.js",
+              "Tailwind",
+              "Supabase",
+              "PostgreSQL",
+              "Stripe"
+            ],
+            "link": "https://homie-stay.vercel.app/",
+            "image": "/projects/homiestay.jpg",
+            "imageAlt": "HomieStay project screenshot",
+            "featured": true
+          },
+          {
+            "id": "projects-6",
+            "title": "ResNet18 Pneumonia Classification (PneumoniaMNIST)",
+            "description": "Implemented ResNet18 for pneumonia detection from chest X-rays.",
+            "tags": [
+              "Python",
+              "PyTorch",
+              "Medical Imaging"
+            ],
+            "github": "https://github.com/Tanjim-Islam/ResNet18-Pneumonia-MNIST",
+            "featured": true
+          },
+          {
+            "id": "projects-7",
+            "title": "VGG19 Ultrasound Classification",
+            "description": "Implemented VGG19 in TensorFlow/Keras for ultrasound image classification.",
+            "tags": [
+              "Python",
+              "TensorFlow",
+              "Keras",
+              "Computer Vision"
+            ],
+            "github": "https://github.com/Tanjim-Islam/VGG19-Ultrasound-Classification",
+            "featured": true
+          },
+          {
+            "id": "projects-8",
+            "title": "SENet Ultrasound Classification",
+            "description": "Applied Squeeze-and-Excitation Networks (SENet) for ultrasound image recognition.",
+            "tags": [
+              "Python",
+              "Deep Learning",
+              "Medical Imaging"
+            ],
+            "github": "https://github.com/Tanjim-Islam/SENet-Ultrasound-Classification",
+            "featured": true
+          },
+          {
+            "id": "projects-9",
+            "title": "Breast Cancer Prediction Using Machine Learning",
+            "description": "Explored multiple ML algorithms for breast tumor classification (benign vs malignant).",
+            "tags": [
+              "Python",
+              "Scikit-learn",
+              "Machine Learning"
+            ],
+            "github": "https://github.com/Tanjim-Islam/Breast-Cancer-Prediction-Using-Machine-Learning",
+            "featured": true
+          },
+          {
+            "id": "projects-10",
+            "title": "Kidney Disease Prediction",
+            "description": "Evaluated Logistic Regression, Random Forest, SVM, XGBoost, Gradient Boosting for CKD detection.",
+            "tags": [
+              "Python",
+              "XGBoost",
+              "SVM",
+              "Random Forest"
+            ],
+            "github": "https://github.com/Tanjim-Islam/Kidney-Disease-Prediction-Using-Machine-Learning",
+            "featured": true
+          },
+          {
+            "id": "projects-11",
+            "title": "Liver Disease Prediction",
+            "description": "Applied multiple ML models to classify liver disease likelihood.",
+            "tags": [
+              "Python",
+              "Machine Learning",
+              "Healthcare"
+            ],
+            "github": "https://github.com/Tanjim-Islam/Liver-Disease-Prediction-Using-Machine-Learning-Models",
+            "featured": true
+          },
+          {
+            "id": "projects-12",
+            "title": "Heart Disease Prediction",
+            "description": "Compared classical ML models for cardiovascular risk detection.",
+            "tags": [
+              "Python",
+              "Logistic Regression",
+              "Decision Trees",
+              "SVM"
+            ],
+            "github": "https://github.com/Tanjim-Islam/Heart-Disease-Prediction-Using-Logistic-Regression-Decision-Trees-Random-Forest-and-SVC",
+            "featured": true
+          },
+          {
+            "id": "projects-13",
+            "title": "Diabetes Prediction",
+            "description": "Built multi-model system with Logistic Regression, KNN, SVM, RF, Gradient Boosting, XGBoost.",
+            "tags": [
+              "Python",
+              "XGBoost",
+              "Ensemble Methods"
+            ],
+            "github": "https://github.com/Tanjim-Islam/Diabetes-Prediction-Using-Machine-Learning",
+            "featured": true
+          },
+          {
+            "id": "projects-14",
+            "title": "Parkinson's Disease Prediction Using SVM",
+            "description": "Developed SVM-based biomedical model for Parkinson's disease detection.",
+            "tags": [
+              "Python",
+              "SVM",
+              "Biomedical Data"
+            ],
+            "github": "https://github.com/Tanjim-Islam/Parkinson-s-Disease-Prediction-Using-SVM",
+            "featured": true
+          },
+          {
+            "id": "projects-15",
+            "title": "Emotion Prediction Using Neural Networks",
+            "description": "Classified emotions from text using embedding layers and dense neural nets.",
+            "tags": [
+              "Python",
+              "Neural Networks",
+              "NLP"
+            ],
+            "github": "https://github.com/Tanjim-Islam/Emotion-Prediction-Using-Text-Classification-with-Neural-Networks",
+            "featured": true
+          },
+          {
+            "id": "projects-16",
+            "title": "Fake News Detection with FaKnow",
+            "description": "Leveraged PyTorch-based FaKnow library to detect fake news using content and social signals.",
+            "tags": [
+              "Python",
+              "PyTorch",
+              "NLP",
+              "Social Media"
+            ],
+            "github": "https://github.com/Tanjim-Islam/Fake-News-Detection",
+            "featured": true
+          },
+          {
+            "id": "projects-17",
+            "title": "Book Recommendation System",
+            "description": "Built recommendation engine using TF-IDF and cosine similarity.",
+            "tags": [
+              "Python",
+              "TF-IDF",
+              "Recommendation Systems"
+            ],
+            "github": "https://github.com/Tanjim-Islam/Book-Recommendation-System-Using-TF-IDF-and-Cosine-Similarity",
+            "featured": true
+          },
+          {
+            "id": "projects-18",
+            "title": "Fraud Detection Using Decision Tree Classifier",
+            "description": "Designed ML model for detecting fraudulent transactions.",
+            "tags": [
+              "Python",
+              "Decision Trees",
+              "Fraud Detection"
+            ],
+            "github": "https://github.com/Tanjim-Islam/Fraud-Detection-Using-Decision-Tree-Classifier",
+            "featured": true
+          }
+        ]
+      }
+    }
+  },
+  "local": {
+    "profile": {
+      "contactNote": "Contact"
+    },
+    "sections": {
+      "education": {
+        "title": "Education",
+        "enabled": true,
+        "items": [
+          {
+            "id": "education-1",
+            "institution": "BRAC University",
+            "degree": "B.Sc. in Computer Science & Engineering",
+            "date": "2020 - 2024"
+          },
+          {
+            "id": "education-2",
+            "institution": "Bangladesh International School and College",
+            "degree": "Higher School Certificate (HSC)",
+            "date": "2019"
+          },
+          {
+            "id": "education-3",
+            "institution": "Chetona Model Academy",
+            "degree": "Secondary School Certificate (SSC)",
+            "date": "2017"
+          }
+        ]
+      },
+      "experience": {
+        "title": "Experience",
+        "enabled": true,
+        "items": [
+          {
+            "id": "experience-1",
+            "role": "Fullstack Developer",
+            "company": "Invicta Solutions Ltd",
+            "period": "June 2024 - Present",
+            "highlights": [
+              "Developed responsive and visually appealing interfaces using React.js, Node.js, Redux, RESTful APIs",
+              "Implemented CI/CD pipelines, testing with Jest , and collaborated with UI/UX designers",
+              "Worked with scalable architecture and efficient state management",
+              "Utilized Git for version control and collaborative development"
+            ]
+          },
+          {
+            "id": "experience-2",
+            "role": "Software Engineer",
+            "company": "Kaz Software Ltd.",
+            "period": "July 2023 - May 2024",
+            "highlights": [
+              "Designed RESTful services in Node.js backed by PostgreSQL , increasing data retrieval efficiency by 25%",
+              "Led UI consistency across projects using TailwindCSS and Adobe Illustrator , reducing design inconsistencies by 40%",
+              "Migrated microservices to AWS Lambda , improving system reliability by 30% and reducing operational costs by 20%"
+            ]
+          },
+          {
+            "id": "experience-3",
+            "role": "Backend Engineer",
+            "company": "Infolytx",
+            "period": "January 2023 - June 2023",
+            "highlights": [
+              "Developed REST APIs and backend pipelines using Python and PostgreSQL",
+              "Built internal dashboards with custom graphics using Photoshop and Dreamweaver"
+            ]
+          },
+          {
+            "id": "experience-4",
+            "role": "Mobile Developer",
+            "company": "LeadSoft Bangladesh Ltd.",
+            "period": "July 2022 - December 2022",
+            "highlights": [
+              "Built mobile UI components and integrated Firebase for real-time user tracking"
+            ]
+          },
+          {
+            "id": "experience-5",
+            "role": "DevOps Intern",
+            "company": "DataSoft Systems Bangladesh Ltd.",
+            "period": "January 2022 - June 2022",
+            "highlights": [
+              "Automated CI/CD pipelines and managed containerized deployments using Docker and Linux servers"
+            ]
+          },
+          {
+            "id": "experience-6",
+            "role": "UI/UX Design Assistant",
+            "company": "Genex Infosys Ltd.",
+            "period": "September 2021 - December 2021",
+            "highlights": [
+              "Designed web and mobile graphics using Photoshop , Illustrator , and Dreamweaver"
+            ]
+          }
+        ]
+      },
+      "skills": {
+        "title": "Skills",
+        "enabled": true,
+        "items": [
+          {
+            "id": "skills-1",
+            "name": "Python",
+            "category": "languages",
+            "level": 5,
+            "description": "Primary language for ML/AI development and data science"
+          },
+          {
+            "id": "skills-2",
+            "name": "JavaScript",
+            "category": "languages",
+            "level": 5,
+            "description": "Modern ES6+ features for web development"
+          },
+          {
+            "id": "skills-3",
+            "name": "C/C++",
+            "category": "languages",
+            "level": 4,
+            "description": "System programming and algorithm implementation"
+          },
+          {
+            "id": "skills-4",
+            "name": "Java",
+            "category": "languages",
+            "level": 3,
+            "description": "Object-oriented programming and application development"
+          },
+          {
+            "id": "skills-5",
+            "name": "React.js",
+            "category": "web",
+            "level": 5,
+            "description": "Frontend library for building user interfaces"
+          },
+          {
+            "id": "skills-6",
+            "name": "Next.js",
+            "category": "web",
+            "level": 4,
+            "description": "React framework for production-grade applications"
+          },
+          {
+            "id": "skills-7",
+            "name": "Node.js",
+            "category": "web",
+            "level": 4,
+            "description": "Server-side JavaScript runtime"
+          },
+          {
+            "id": "skills-8",
+            "name": "Nest.js",
+            "category": "web",
+            "level": 3,
+            "description": "Progressive Node.js framework for scalable applications"
+          },
+          {
+            "id": "skills-9",
+            "name": "Tailwind CSS",
+            "category": "web",
+            "level": 4,
+            "description": "Utility-first CSS framework for rapid UI development"
+          },
+          {
+            "id": "skills-10",
+            "name": "TensorFlow",
+            "category": "ml",
+            "level": 4,
+            "description": "Deep learning framework for neural networks"
+          },
+          {
+            "id": "skills-11",
+            "name": "PyTorch",
+            "category": "ml",
+            "level": 4,
+            "description": "Machine learning library for research and production"
+          },
+          {
+            "id": "skills-12",
+            "name": "scikit-learn",
+            "category": "ml",
+            "level": 4,
+            "description": "Machine learning library for classical algorithms"
+          },
+          {
+            "id": "skills-13",
+            "name": "Computer Vision",
+            "category": "ml",
+            "level": 4,
+            "description": "OpenCV, YOLO, and Fast R-CNN for image processing"
+          },
+          {
+            "id": "skills-14",
+            "name": "NLP",
+            "category": "ml",
+            "level": 4,
+            "description": "BERT, GPT, and transformer models for text processing"
+          },
+          {
+            "id": "skills-15",
+            "name": "Quantum ML",
+            "category": "ml",
+            "level": 3,
+            "description": "Qiskit and Pennylane for quantum machine learning"
+          },
+          {
+            "id": "skills-16",
+            "name": "MySQL",
+            "category": "databases",
+            "level": 4,
+            "description": "Relational database management system"
+          },
+          {
+            "id": "skills-17",
+            "name": "MongoDB",
+            "category": "databases",
+            "level": 4,
+            "description": "NoSQL document database for modern applications"
+          },
+          {
+            "id": "skills-18",
+            "name": "SQL",
+            "category": "databases",
+            "level": 4,
+            "description": "Query language for relational databases"
+          },
+          {
+            "id": "skills-19",
+            "name": "Docker",
+            "category": "cloud",
+            "level": 3,
+            "description": "Containerization for application deployment"
+          },
+          {
+            "id": "skills-20",
+            "name": "Git",
+            "category": "cloud",
+            "level": 5,
+            "description": "Version control system for collaborative development"
+          },
+          {
+            "id": "skills-21",
+            "name": "Kubernetes",
+            "category": "cloud",
+            "level": 2,
+            "description": "Container orchestration for scalable applications"
+          },
+          {
+            "id": "skills-22",
+            "name": "Figma",
+            "category": "design",
+            "level": 3,
+            "description": "Collaborative interface design tool"
+          },
+          {
+            "id": "skills-23",
+            "name": "Adobe XD",
+            "category": "design",
+            "level": 3,
+            "description": "UI/UX design and prototyping tool"
+          },
+          {
+            "id": "skills-24",
+            "name": "Agile/Scrum",
+            "category": "tools",
+            "level": 4,
+            "description": "Project management methodologies"
+          },
+          {
+            "id": "skills-25",
+            "name": "Jupyter",
+            "category": "tools",
+            "level": 5,
+            "description": "Interactive computing environment for data science"
+          },
+          {
+            "id": "skills-26",
+            "name": "LaTeX",
+            "category": "tools",
+            "level": 4,
+            "description": "Document preparation system for technical writing"
+          }
+        ]
+      },
+      "projects": {
+        "title": "Portfolio",
+        "enabled": true,
+        "items": [
+          {
+            "id": "portfolio-1",
+            "title": "StoreIt",
+            "description": "Full-stack file storage application with secure authentication and file management capabilities",
+            "image": "/projects/storeit.jpg",
+            "imageAlt": "StoreIt project screenshot",
+            "github": "https://github.com/Tanjim-Islam/Storage-management",
+            "demo": "https://storeit-site.netlify.app/",
+            "featured": true,
+            "category": "web"
+          },
+          {
+            "id": "portfolio-2",
+            "title": "Algorithm Visualizer",
+            "description": "Interactive tool for visualizing various algorithms including sorting, searching, and graph algorithms",
+            "image": "/projects/algoviz.jpg",
+            "imageAlt": "Algorithm Visualizer project screenshot",
+            "github": "https://github.com/Tanjim-Islam/Algorithm-Visualizer",
+            "demo": "https://visualize-algo.netlify.app/",
+            "featured": true,
+            "category": "web"
+          },
+          {
+            "id": "portfolio-3",
+            "title": "PinkShop",
+            "description": "E-commerce frontend with modern UI, product catalog, cart functionality, and responsive design",
+            "image": "/projects/pinkshop.jpg",
+            "imageAlt": "PinkShop project screenshot",
+            "github": "https://github.com/Tanjim-Islam/ecommerce-pinkshop",
+            "demo": "https://ecom-pinkshop.netlify.app",
+            "featured": true,
+            "category": "web"
+          },
+          {
+            "id": "portfolio-4",
+            "title": "HomieStay",
+            "description": "P2P booking platform similar to Airbnb with property listings, user authentication, and booking system",
+            "image": "/projects/homiestay.jpg",
+            "imageAlt": "HomieStay project screenshot",
+            "github": "https://github.com/Tanjim-Islam/HomieStay",
+            "demo": "https://homie-stay.vercel.app",
+            "featured": true,
+            "category": "web"
+          },
+          {
+            "id": "portfolio-5",
+            "title": "3D Portfolio Website",
+            "description": "Personal portfolio website showcasing skills, projects, and professional experience",
+            "image": "/projects/portfolio.jpg",
+            "imageAlt": "3D Portfolio Website project screenshot",
+            "github": "https://github.com/Tanjim-Islam/Portfolio",
+            "demo": "https://tanjimriju.vercel.app",
+            "featured": true,
+            "category": "web"
+          },
+          {
+            "id": "portfolio-6",
+            "title": "Chess Clock",
+            "description": "Web-based chess clock application with customizable time controls and themes",
+            "image": "/projects/chessclock.jpg",
+            "imageAlt": "Chess Clock project screenshot",
+            "github": "https://github.com/Tanjim-Islam/Chess-Clock",
+            "demo": "https://chess-clock-blue.vercel.app",
+            "featured": true,
+            "category": "web"
+          },
+          {
+            "id": "portfolio-7",
+            "title": "Hand Sign Recognition with YOLOv8",
+            "description": "Computer vision project that detects and classifies hand signs in real-time using YOLOv8 object detection framework",
+            "image": "/projects/handsignrecognition.jpg",
+            "imageAlt": "Hand Sign Recognition with YOLOv8 project screenshot",
+            "github": "https://github.com/Tanjim-Islam/Hand-Sign-Recognition-with-YOLOv8",
+            "demo": "",
+            "featured": false,
+            "category": "ml"
+          },
+          {
+            "id": "portfolio-8",
+            "title": "Fake News Detection",
+            "description": "ML system using the FaKnow library to detect fake news with high accuracy across multiple datasets",
+            "image": "/projects/fakenewsdetection.jpg",
+            "imageAlt": "Fake News Detection project screenshot",
+            "github": "https://github.com/Tanjim-Islam/Fake-News-Detection",
+            "demo": "",
+            "featured": false,
+            "category": "ml"
+          },
+          {
+            "id": "portfolio-9",
+            "title": "Emotion Prediction",
+            "description": "Neural network-based text classification system for emotion prediction from textual content",
+            "image": "/projects/emotionprediction.jpg",
+            "imageAlt": "Emotion Prediction project screenshot",
+            "github": "https://github.com/Tanjim-Islam/Emotion-Prediction-Using-Text-Classification-with-Neural-Networks",
+            "demo": "",
+            "featured": false,
+            "category": "ml"
+          },
+          {
+            "id": "portfolio-10",
+            "title": "Parkinson's Disease Prediction",
+            "description": "SVM-based machine learning model for early detection of Parkinson's disease from medical data",
+            "image": "/projects/parkinsondisease.jpg",
+            "imageAlt": "Parkinson's Disease Prediction project screenshot",
+            "github": "https://github.com/Tanjim-Islam/Parkinson-s-Disease-Prediction-Using-SVM",
+            "demo": "",
+            "featured": false,
+            "category": "ml"
+          },
+          {
+            "id": "portfolio-11",
+            "title": "Kidney Disease Prediction",
+            "description": "Multiple machine learning models for predicting kidney disease from patient data",
+            "image": "/projects/kidneydisease.jpg",
+            "imageAlt": "Kidney Disease Prediction project screenshot",
+            "github": "https://github.com/Tanjim-Islam/Kidney-Disease-Prediction-Using-Machine-Learning",
+            "demo": "",
+            "featured": false,
+            "category": "ml"
+          },
+          {
+            "id": "portfolio-12",
+            "title": "Bangla Voice Bot",
+            "description": "Chatbot with sentiment analysis capabilities for Bangla language",
+            "image": "/projects/banglavoicebot.jpg",
+            "imageAlt": "Bangla Voice Bot project screenshot",
+            "github": "https://github.com/Tanjim-Islam/Bangla-Voice-Bot",
+            "demo": "",
+            "featured": false,
+            "category": "ml"
+          }
+        ]
+      },
+      "research": {
+        "title": "Research & Thesis",
+        "enabled": true,
+        "items": [
+          {
+            "id": "research-thesis-1",
+            "title": "Maternal Fetal Ultrasound Diagnosis with Deep Learning",
+            "description": "Used SE blocks and deep learning for prenatal anomaly detection.",
+            "status": "Thesis"
+          },
+          {
+            "id": "research-thesis-2",
+            "title": "Medical Report Generation with Multimodal Data + LLMs",
+            "description": "Combines GPT-4 with image and text data for report generation.",
+            "status": "Research"
+          },
+          {
+            "id": "research-thesis-3",
+            "title": "Load Balancing in Distributed Cache Systems",
+            "description": "Focuses on adaptive techniques to improve latency and efficiency.",
+            "status": "Research"
+          }
+        ]
+      }
+    }
+  }
+}

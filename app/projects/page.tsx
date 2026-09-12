@@ -1,12 +1,13 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useMemo } from "react"
 import { motion } from "framer-motion"
 import { StarryBackground } from "@/components/StarryBackground"
 import { Navigation } from "@/components/Navigation"
 import { CustomCursor } from "@/components/CustomCursor"
 import { ProjectCard } from "@/components/ProjectCard"
-import { allProjects, navLinks } from "@/data/portfolioData"
+import { usePortfolio } from "@/lib/cms/provider"
+import { itemsOf, type SectionKey } from "@/lib/cms/content"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 
@@ -14,51 +15,17 @@ const categories = [
   { id: "all", name: "All Projects" },
   { id: "web", name: "Web Development" },
   { id: "ml", name: "Machine Learning" },
+  { id: "other", name: "Other" },
 ]
 
 export default function ProjectsPage() {
+  const content = usePortfolio();
+  const allProjects = useMemo(() => itemsOf(content, "projects").map(item => ({ ...item, name: item.title })), [content]);
+  const navLinks = [{ id: "hero", title: "Hero" }, ...["education", "skills", "projects", "experience", "research"].filter(key => content.sections[key as SectionKey].enabled).map(key => ({ id: key === "projects" ? "portfolio" : key, title: content.sections[key as SectionKey].title })), { id: "contact", title: "Contact" }];
   const [selectedCategory, setSelectedCategory] = useState("all")
-  const [filteredProjects, setFilteredProjects] = useState(allProjects)
   const [searchQuery, setSearchQuery] = useState("")
 
-  useEffect(() => {
-    let filtered = allProjects
-
-    // Filter by search query
-    if (searchQuery) {
-      filtered = filtered.filter(
-        (project) =>
-          project.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          project.description.toLowerCase().includes(searchQuery.toLowerCase()),
-      )
-    }
-
-    // Filter by category
-    if (selectedCategory !== "all") {
-      if (selectedCategory === "web") {
-        filtered = filtered.filter(
-          (project) =>
-            project.name.includes("Shop") ||
-            project.name.includes("Store") ||
-            project.name.includes("Stay") ||
-            project.name.includes("Portfolio") ||
-            project.name.includes("Chess") ||
-            project.name.includes("Algorithm"),
-        )
-      } else if (selectedCategory === "ml") {
-        filtered = filtered.filter(
-          (project) =>
-            project.name.includes("Recognition") ||
-            project.name.includes("Detection") ||
-            project.name.includes("Prediction") ||
-            project.name.includes("Disease") ||
-            project.name.includes("Bot"),
-        )
-      }
-    }
-
-    setFilteredProjects(filtered)
-  }, [selectedCategory, searchQuery])
+  const filteredProjects = useMemo(() => allProjects.filter(project => (selectedCategory === "all" || project.category === selectedCategory) && (project.name.toLowerCase().includes(searchQuery.toLowerCase()) || project.description.toLowerCase().includes(searchQuery.toLowerCase()))), [allProjects, selectedCategory, searchQuery]);
 
   const container = {
     hidden: { opacity: 0 },
@@ -131,8 +98,10 @@ export default function ProjectsPage() {
                   name={project.name}
                   description={project.description}
                   image={project.image}
+                  imageAlt={project.imageAlt}
+                  tags={project.tags}
                   github={project.github}
-                  demo={project.demo}
+                  demo={project.demo || project.link}
                 />
               </motion.div>
             ))}

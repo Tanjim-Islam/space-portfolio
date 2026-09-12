@@ -7,17 +7,19 @@ import { motion } from "framer-motion"
 interface ProjectCardProps {
   name: string
   description: string
+  imageAlt?: string
+  tags?: string[]
   image: string
   github: string
   demo: string | null
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ name, description, image, github, demo }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({ name, description, image, imageAlt, github, demo, tags = [] }) => {
   const handleCardClick = () => {
     if (demo) {
-      window.open(demo, "_blank")
-    } else {
-      window.open(github, "_blank")
+      window.open(demo, "_blank", "noopener,noreferrer")
+    } else if (github) {
+      window.open(github, "_blank", "noopener,noreferrer")
     }
   }
 
@@ -31,7 +33,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ name, description, ima
       <div className="relative">
         <img
           src={image || "/placeholder.svg"}
-          alt={name}
+          alt={imageAlt || name}
           className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-start p-4">
@@ -43,7 +45,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ name, description, ima
       <div className="p-6">
         <div className="flex justify-between items-start mb-2">
           <h3 className="text-xl font-semibold text-white">{name}</h3>
-          <a
+          {github && <a
             href={github}
             target="_blank"
             rel="noopener noreferrer"
@@ -51,9 +53,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ name, description, ima
             className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
           >
             <Github size={18} className="text-white" />
-          </a>
+          </a>}
         </div>
         <p className="text-gray-300">{description}</p>
+        {tags.length > 0 && <p className="text-xs text-blue-200 mt-4">{tags.join(" · ")}</p>}
       </div>
     </motion.div>
   )

@@ -12,20 +12,22 @@ import { Button } from "@/components/Button";
 import { SocialIcon } from "@/components/SocialIcon";
 import { CustomCursor } from "@/components/CustomCursor";
 import { SkillCloud } from "@/components/SkillCloud";
-import {
-  navLinks,
-  experiences,
-  portfolio,
-  skills,
-  education,
-  research,
-} from "@/data/portfolioData";
+import { usePortfolio } from "@/lib/cms/provider";
+import { itemsOf, safeLink, type SectionKey } from "@/lib/cms/content";
+import type { Skill } from "@/data/portfolioData";
 import Link from "next/link";
 
 const PortfolioPage: React.FC = () => {
+  const content = usePortfolio(); const { profile, sections } = content;
+  const education = itemsOf(content, "education");
+  const skills = itemsOf(content, "skills").map(item => ({ name: item.name, category: (item.category || "other") as Skill["category"], level: item.level, description: item.description }));
+  const portfolio = itemsOf(content, "projects").filter(item => item.featured).map(item => ({ ...item, name: item.title }));
+  const experiences = itemsOf(content, "experience").map(item => ({ ...item, title: item.role, company_name: item.company, date: item.period, details: item.highlights }));
+  const research = itemsOf(content, "research").map(item => ({ ...item, type: item.status }));
+  const navLinks = [{ id: "hero", title: "Hero" }, ...["education", "skills", "projects", "experience", "research"].filter(key => sections[key as SectionKey].enabled).map(key => ({ id: key === "projects" ? "portfolio" : key, title: sections[key as SectionKey].title })), { id: "contact", title: "Contact" }];
   const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    navigator.clipboard.writeText("tanjim.riju1243@gmail.com");
+    navigator.clipboard.writeText(profile.email);
     toast.success("Email Copied!", {
       style: {
         background: "#333",
@@ -113,12 +115,13 @@ const PortfolioPage: React.FC = () => {
         <section id="hero" className="pt-24 mb-20 text-center">
           {" "}
           {/* Added pt-24 for top padding */}
-          <h1 className="text-4xl font-bold mb-4">Tanjim Islam Riju</h1>
-          <AnimatedText texts={["Software Engineer", "AI Developer"]} />
+          <h1 className="text-4xl font-bold mb-4">{profile.fullName}</h1>
+          <AnimatedText texts={profile.roles.filter(Boolean).length ? profile.roles.filter(Boolean) : [profile.headline]} />
+          {profile.resumeUrl && <a className="inline-block mt-4 text-blue-300 underline" href={safeLink(profile.resumeUrl)} target="_blank" rel="noreferrer">Download CV</a>}
         </section>
 
-        <section id="education" className="mb-20">
-          <h2 className="text-3xl font-semibold mb-6">Education</h2>
+        {sections.education.enabled && <section id="education" className="mb-20">
+          <h2 className="text-3xl font-semibold mb-6">{sections.education.title}</h2>
           {education.map((edu, index) => (
             <Card
               key={index}
@@ -128,20 +131,22 @@ const PortfolioPage: React.FC = () => {
               <p className="text-gray-300">
                 {edu.institution}, {edu.date}
               </p>
+              {edu.distinction && <p className="text-blue-200 mt-2">{edu.distinction}</p>}
+              {edu.details && <p className="text-gray-300 mt-3 whitespace-pre-line">{edu.details}</p>}
             </Card>
           ))}
-        </section>
+        </section>}
 
-        <section id="skills" className="mb-20">
-          <h2 className="text-3xl font-semibold mb-6">Skills</h2>
+        {sections.skills.enabled && <section id="skills" className="mb-20">
+          <h2 className="text-3xl font-semibold mb-6">{sections.skills.title}</h2>
           <Card noPadding>
             <SkillCloud skills={skills} />
           </Card>
-        </section>
+        </section>}
 
-        <section id="portfolio" className="mb-20">
+        {sections.projects.enabled && <section id="portfolio" className="mb-20">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-3xl font-semibold">Portfolio</h2>
+            <h2 className="text-3xl font-semibold">{sections.projects.title}</h2>
             <Link href="/projects">
               <Button className="w-full flex items-center justify-center gap-2 bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50">
                 View All <ExternalLink size={16} />
@@ -152,7 +157,7 @@ const PortfolioPage: React.FC = () => {
             {portfolio.slice(0, 6).map((project, index) => (
               <Link
                 key={index}
-                href={project.demo || project.github}
+                href={safeLink(project.demo || project.github || project.link) || "#portfolio"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block"
@@ -160,20 +165,21 @@ const PortfolioPage: React.FC = () => {
                 <Card tilt={true} className="h-full">
                   <img
                     src={project.image || "/placeholder.svg"}
-                    alt={project.name}
+                    alt={project.imageAlt || project.name}
                     className="w-full h-40 object-cover mb-4 rounded-xl"
                   />
                   <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
                   <p className="text-gray-300 mb-4">{project.description}</p>
+                  {project.tags.length > 0 && <p className="text-xs text-blue-200 mb-4">{project.tags.join(" · ")}</p>}
                   <span className="text-blue-300">View Project</span>
                 </Card>
               </Link>
             ))}
           </div>
-        </section>
+        </section>}
 
-        <section id="experience" className="mb-20">
-          <h2 className="text-3xl font-semibold mb-6">Experience</h2>
+        {sections.experience.enabled && <section id="experience" className="mb-20">
+          <h2 className="text-3xl font-semibold mb-6">{sections.experience.title}</h2>
           {experiences.map((exp, index) => (
             <Card
               key={index}
@@ -185,15 +191,16 @@ const PortfolioPage: React.FC = () => {
               </p>
               <ul className="list-disc list-inside text-gray-300">
                 {exp.details.map((detail, i) => (
-                  <li key={i} dangerouslySetInnerHTML={{ __html: detail }}></li>
+                  <li key={i} >{detail}</li>
                 ))}
               </ul>
+              {exp.stack.length > 0 && <p className="text-sm text-blue-200 mt-3">{exp.stack.join(" · ")}</p>}
             </Card>
           ))}
-        </section>
+        </section>}
 
-        <section id="research" className="mb-20">
-          <h2 className="text-3xl font-semibold mb-6">Research & Thesis</h2>
+        {sections.research.enabled && <section id="research" className="mb-20">
+          <h2 className="text-3xl font-semibold mb-6">{sections.research.title}</h2>
           {research.map((item, index) => (
             <Card
               key={index}
@@ -206,12 +213,21 @@ const PortfolioPage: React.FC = () => {
                 </span>
               </div>
               <p className="text-gray-300">{item.description}</p>
+              {item.authors && <p className="text-sm text-gray-400 mt-2">{item.authors}</p>}
+              {item.venue && <p className="text-sm text-blue-200 mt-2">{item.venue}</p>}
+              {item.tags.length > 0 && <p className="text-xs text-purple-200 mt-3">{item.tags.join(" · ")}</p>}
+              {item.link && <a href={safeLink(item.link)} className="inline-block mt-3 text-blue-300" target="_blank" rel="noreferrer">Read paper</a>}
             </Card>
           ))}
-        </section>
+        </section>}
 
         <section id="contact" className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">Contact</h2>
+          <h2 className="text-3xl font-semibold mb-6">{profile.contactNote || "Contact"}</h2>
+          <div className="flex flex-wrap gap-4 text-sm text-gray-300 mb-6">
+            <span>{[profile.location, profile.timezone].filter(Boolean).join(" · ")}</span>
+            {profile.phone && <a href={`tel:${profile.phone}`}>{profile.phone}</a>}
+            <a href={`mailto:${profile.email}`}>{profile.email}</a>
+          </div>
           <Card>
             <form className="space-y-4" onSubmit={handleFormSubmit}>
               <div>
@@ -265,20 +281,20 @@ const PortfolioPage: React.FC = () => {
             <div className="flex justify-center items-center space-x-4">
               <SocialIcon
                 icon={Facebook}
-                href="https://www.facebook.com/tanjim.islam1"
+                href={safeLink(profile.facebook)}
               />
               <SocialIcon
                 icon={Github}
-                href="https://github.com/Tanjim-Islam"
+                href={safeLink(profile.github)}
               />
               <SocialIcon
                 icon={Linkedin}
-                href="https://www.linkedin.com/in/tanjim-riju/"
+                href={safeLink(profile.linkedin)}
               />
               <SocialIcon icon={Mail} href="#" onClick={handleEmailClick} />
             </div>
             <p className="text-sm text-gray-400">
-              &copy; 2025 Tanjim Islam Riju. All rights reserved.
+              &copy; {new Date().getFullYear()} {profile.fullName}. All rights reserved.
             </p>
           </div>
         </footer>
