@@ -118,7 +118,14 @@
             ],
             "link": "https://arxiv.org/abs/2508.13068"
           }
-        ]
+        ],
+        "authorLinks": {
+          "shuchismita anwar": "https://shuchismita-anwar.github.io/",
+          "saman sarker joy": "https://samansarkerjoy.site/",
+          "farig sadeque": "https://www.bracu.ac.bd/about/people/farig-yousuf-sadeque",
+          "farig yousuf sadeque": "https://www.bracu.ac.bd/about/people/farig-yousuf-sadeque",
+          "swakkhar shatabda": "https://www.bracu.ac.bd/about/people/swakkhar-shatabda-phd"
+        }
       },
       "projects": {
         "title": "Projects",
@@ -822,7 +829,14 @@
             "description": "Focuses on adaptive techniques to improve latency and efficiency.",
             "status": "Research"
           }
-        ]
+        ],
+        "authorLinks": {
+          "shuchismita anwar": "https://shuchismita-anwar.github.io/",
+          "saman sarker joy": "https://samansarkerjoy.site/",
+          "farig sadeque": "https://www.bracu.ac.bd/about/people/farig-yousuf-sadeque",
+          "farig yousuf sadeque": "https://www.bracu.ac.bd/about/people/farig-yousuf-sadeque",
+          "swakkhar shatabda": "https://www.bracu.ac.bd/about/people/swakkhar-shatabda-phd"
+        }
       }
     }
   }

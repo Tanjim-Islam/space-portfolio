@@ -78,6 +78,8 @@ export interface ContentSection {
   title: string;
   enabled: boolean;
   items: ContentItem[];
+  authorLinks?: Record<string, string>;
+  ignoredAuthors?: string[];
 }
 export interface ContentDocument {
   profile: Partial<Profile>;

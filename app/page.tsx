@@ -1,4 +1,5 @@
 "use client";
+import { getAuthorLink, splitAuthors } from "../lib/cms/authors";
 
 import type React from "react";
 import { Github, Linkedin, Mail, ExternalLink, Facebook } from "lucide-react";
@@ -213,7 +214,10 @@ const PortfolioPage: React.FC = () => {
                 </span>
               </div>
               <p className="text-gray-300">{item.description}</p>
-              {item.authors && <p className="text-sm text-gray-400 mt-2">{item.authors}</p>}
+              {item.authors && <p className="text-sm text-gray-400 mt-2">{splitAuthors(item.authors).map((name, authorIndex) => {
+                const url = getAuthorLink(sections.research.authorLinks, name);
+                return <span key={`${name}-${authorIndex}`}>{authorIndex > 0 && ", "}{url ? <a href={url} target="_blank" rel="noopener noreferrer" className="text-blue-300 underline underline-offset-4 hover:text-blue-200 focus-visible:outline-2">{name}</a> : name}</span>;
+              })}</p>}
               {item.venue && <p className="text-sm text-blue-200 mt-2">{item.venue}</p>}
               {item.tags.length > 0 && <p className="text-xs text-purple-200 mt-3">{item.tags.join(" · ")}</p>}
               {item.link && <a href={safeLink(item.link)} className="inline-block mt-3 text-blue-300" target="_blank" rel="noreferrer">Read paper</a>}
